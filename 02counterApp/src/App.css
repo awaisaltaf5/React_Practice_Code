@@ -1,0 +1,229 @@
+:root {
+  --bg-dark: #090d16;
+  --panel-bg: #111827;
+  --accent-blue: #3b82f6;
+  --accent-green: #10b981;
+  --accent-red: #ef4444;
+  --text-main: #f3f4f6;
+  --text-muted: #9ca3af;
+  --border-glow: #1f2937;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Master Layout Grid */
+.dashboard-container {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 2rem;
+  width: 90vw;
+  max-width: 950px;
+  background: var(--panel-bg);
+  padding: 2rem;
+  border-radius: 24px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  border: 1px solid var(--border-glow);
+}
+
+/* Profile / Sidebar Items */
+.profile-tabs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  border-right: 1px solid var(--border-glow);
+  padding-right: 1.5rem;
+}
+
+.tab-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: #1f2937;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  color: var(--text-main);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+}
+
+.tab-btn:hover {
+  background: #374151;
+}
+
+.tab-btn.active-tab {
+  background: rgba(59, 130, 246, 0.15);
+  border-color: var(--accent-blue);
+}
+
+.profile-count {
+  background: var(--accent-blue);
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 0.85rem;
+}
+
+/* Right Content Area */
+.main-hub {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Stats Header Components */
+.stats-dashboard {
+  background: #1f2937;
+  padding: 1.25rem;
+  border-radius: 16px;
+}
+
+.level-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.level-badge {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-weight: 800;
+  color: #000;
+}
+
+.xp-bar-wrapper {
+  flex-grow: 1;
+}
+
+.xp-text {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-bottom: 0.25rem;
+}
+
+.xp-bar-outer {
+  background: #374151;
+  height: 8px;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.xp-bar-inner {
+  background: var(--accent-green);
+  height: 100%;
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.stat-box {
+  background: #111827;
+  padding: 0.75rem;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.stat-value {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.text-positive { color: var(--accent-green); }
+
+/* Main Focus Counter Card */
+.counter-focus-card {
+  background: #1f2937;
+  padding: 2.5rem;
+  border-radius: 16px;
+  text-align: center;
+}
+
+.counter-focus-card h2 {
+  margin: 0 0 1rem 0;
+  font-size: 1.5rem;
+}
+
+.giant-counter {
+  font-size: 5rem;
+  font-weight: 900;
+  margin-bottom: 1.5rem;
+  font-variant-numeric: tabular-nums;
+  background: linear-gradient(180deg, #fff, #9ca3af);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.action-cluster {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.control-btn {
+  width: 70px;
+  height: 70px;
+  border: none;
+  border-radius: 50%;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: #fff;
+  transition: transform 0.1s;
+}
+
+.control-btn:active { transform: scale(0.95); }
+.dec-btn { background: var(--accent-red); }
+.inc-btn { background: var(--accent-green); }
+
+.secondary-reset-btn {
+  background: transparent;
+  border: 1px solid #374151;
+  color: var(--text-muted);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.secondary-reset-btn:hover {
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--accent-red);
+}
+
+/* Responsive collapse for smaller screens */
+@media (max-width: 768px) {
+  .dashboard-container {
+    grid-template-columns: 1fr;
+  }
+  .profile-tabs {
+    border-right: none;
+    padding-right: 0;
+    flex-direction: row;
+    overflow-x: auto;
+  }
+  .tab-btn {
+    flex-shrink: 0;
+  }
+}
